@@ -1,0 +1,139 @@
+/* HERO */
+@use '../util' as u;
+
+/* image animation */
+@keyframes trap{
+    0% {
+        border-radius: 60% 40% 30% 70%/ 60% 30% 70% 40%;
+    }
+
+    50% {
+        border-radius: 30% 60% 70% 40%/ 50% 60% 30% 60%;
+    }
+
+    100% {
+        border-radius: 60% 40% 30% 70%/ 60% 30% 70% 40%;
+    }
+
+}
+
+.hero{
+    top: 0;
+
+    @include u.breakpoint(tab){
+        overflow-x: hidden;
+    }
+
+    &__wrapper{
+        padding-block: 40px;
+        border-bottom: 1px solid var(--text2);
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: auto auto auto;
+        grid-row-gap: 40px;
+
+        @include u.breakpoint(tab){
+            padding-top: 0;
+            padding-bottom: 20px;
+            grid-template-columns: 60% 40%;
+        }
+    }
+    
+    &__text{
+        text-align: center;
+        grid-row: 2 / 3;
+
+        @include u.breakpoint(tab){
+            text-align: left;
+            margin-top: 0;
+            width: 62vw;
+            position: relative;
+            grid-row: 1 / 2;
+            grid-column: 1 / 2;
+        }
+    }
+    
+    &__headline > br{
+        display: none;
+
+        @include u.breakpoint(tab){
+            display: inline-block;
+        }
+        @include u.breakpoint(desktop){
+            display: none;
+        }
+    }
+    &__image{
+        margin-inline: auto;
+        width: 174px;
+        height: auto;
+        position: relative;
+        padding-bottom: 0;
+        grid-row: 1 / 2;
+        
+        animation: trap 8s ease-in-out infinite;
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border: 3px solid var(--accent);
+        border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+        transition: all 1s ease-in-out;
+        
+        @include u.breakpoint(tab){
+            width: 250px;
+            height: auto;
+            align-items: right;
+            grid-column: 2 / 3;
+        }
+    }
+    &__contact{
+        justify-self: center;
+        grid-row: 3 / 4;
+
+        @include u.breakpoint(tab){
+            grid-row: 2 / 3;
+            grid-column: 1 / 2;
+            justify-self: left;
+        }
+    }
+    
+    &__rings{
+        position: absolute;
+        right: 50%;
+        top: 14.5%;
+        z-index: -1;
+        height: auto;
+
+        @include u.breakpoint(tab){
+            top: 85px;
+        }
+    }
+    
+    &__circle{
+        position: relative;
+        top: -129px;
+        translate: calc(100vw - 50% - 16px);
+        margin-bottom: -129px;
+
+        @include u.breakpoint(tab){
+            position: relative;
+            translate: 195%;
+            margin-bottom: 0;
+        }
+    }
+    &__description{
+        @include u.breakpoint(tab){
+            width: 70%;
+            margin-block-end: 34px;
+        }
+    }
+}
+
+
+h1 > span{
+    background-image: linear-gradient( to right, var(--accent) 75%, var(--accent) 75%);
+    background-position: 0 1.18em;
+    background-repeat: repeat-x;
+    background-size: 8px 4px;
+}
+
