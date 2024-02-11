@@ -93,6 +93,7 @@
         @include u.breakpoint(tab){
             grid-row: 2 / 3;
             grid-column: 1 / 2;
+            height: 36px;
             justify-self: left;
         }
     }
